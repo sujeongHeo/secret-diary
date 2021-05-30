@@ -1,6 +1,7 @@
 package fastcampus.aop.part2.myapplication
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -59,9 +60,8 @@ class MainActivity : AppCompatActivity() {
             val passwordPreferences = getSharedPreferences("password", Context.MODE_PRIVATE)
             val passwordFromUser = "${numberPicker1.value}${numberPicker2.value}${numberPicker3.value}"
             if (passwordPreferences.getString("password", "000").equals(passwordFromUser)){
-                    // 성공했을 때는 다음 페이지
                 // TODO 다이어리 페이지 작성 후에 넘겨주어야 함
-                //startActivity()
+                startActivity(Intent(this, DiaryActivity::class.java))
             }else {
                 showErrorAlertDialog()
             }
